@@ -20,7 +20,8 @@
     "express": "^4.11.2",
     "gulp": "^3.9.1",
     "gulp-nodemon": "^2.2.1",
-    "jscs": "^3.0.7"
+    "jscs": "^3.0.7",
+    "mongoose": "^4.11.13"
   },
   "devDependencies": {
     "jshint": "^2.9.5"
