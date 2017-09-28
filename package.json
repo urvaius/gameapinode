@@ -28,6 +28,8 @@
     "sinon": "^4.0.0"
   },
   "devDependencies": {
-    "jshint": "^2.9.5"
+    "gulp-env": "^0.4.0",
+    "jshint": "^2.9.5",
+    "supertest": "^3.0.0"
   }
 }

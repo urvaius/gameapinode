@@ -3,8 +3,14 @@ var express = require ('express'),
     bodyParser = require('body-parser');
 
 
-var db = mongoose.connect('mongodb://urvaius:Buffy11$@arne-5-mongo1-shard-00-00-ujozx.mongodb.net:27017,arne-5-mongo1-shard-00-01-ujozx.mongodb.net:27017,arne-5-mongo1-shard-00-02-ujozx.mongodb.net:27017/bookAPI?ssl=true&replicaSet=arne-5-mongo1-shard-0&authSource=admin');
-
+var db;
+if (process.env.ENV == 'Test')
+    db = mongoose.connect('mongodb://urvaius:Buffy11$@arne-5-mongo1-shard-00-00-ujozx.mongodb.net:27017,arne-5-mongo1-shard-00-01-ujozx.mongodb.net:27017,arne-5-mongo1-shard-00-02-ujozx.mongodb.net:27017/bookAPI_test?ssl=true&replicaSet=arne-5-mongo1-shard-0&authSource=admin');
+else
+{
+    db = mongoose.connect('mongodb://urvaius:Buffy11$@arne-5-mongo1-shard-00-00-ujozx.mongodb.net:27017,arne-5-mongo1-shard-00-01-ujozx.mongodb.net:27017,arne-5-mongo1-shard-00-02-ujozx.mongodb.net:27017/bookAPI?ssl=true&replicaSet=arne-5-mongo1-shard-0&authSource=admin');
+    
+}
 var Book = require('./models/bookModel');
 
 var app = express();
@@ -25,3 +31,5 @@ app.get('/', function(req, res){
 app.listen(port, function(){
     console.log('running my app on  port: ' + port);
 });
+
+module.exports = app;
