@@ -24,7 +24,8 @@ var routes = function (Book) {
         .get(function (req, res) {
             var returnBook = req.book.toJSON();
             returnBook.links = {};
-            returnBook.links.FilterByThisGenre = 'http://' + req.headers.host + '/api/books/?genre=' + returnBook.genre;
+            var newLink = 'http://' + req.headers.host + '/api/books/?genre=' + returnBook.genre;
+            returnBook.links.FilterByThisGenre = newLink.replace(' ', '%20');
             res.json(returnBook);
 
         })
